@@ -1,18 +1,22 @@
 /* Script de inicialização do banco de dados */
 
+-- inserts feitos
 CREATE TABLE tipo_usuario(
     nome VARCHAR(255) PRIMARY KEY
 );
 
+-- inserts feitos
 CREATE TABLE combustivel(
     nome VARCHAR(255) PRIMARY KEY
 );
 
+-- inserts feitos
 CREATE TABLE bandeira(
     nome VARCHAR(255) PRIMARY KEY,
     url VARCHAR(255)
 );
 
+-- inserts feitos
 CREATE TABLE cidade(
     nome VARCHAR(255) PRIMARY KEY,
     estado VARCHAR(255) NOT NULL,
@@ -20,12 +24,14 @@ CREATE TABLE cidade(
     longitude DECIMAL(11, 8)
 );
 
+-- inserts feitos
 CREATE TABLE bairro(
     nome VARCHAR(255) PRIMARY KEY,
     nomeCidade VARCHAR(255),
     FOREIGN KEY (nomeCidade) REFERENCES cidade(nome)
 );
 
+-- inserts feitos
 CREATE TABLE usuario (
     login VARCHAR(255) PRIMARY KEY,
     senha VARCHAR(255),
@@ -33,6 +39,7 @@ CREATE TABLE usuario (
     FOREIGN KEY (nomeTipoUsuario) REFERENCES tipo_usuario(nome)
 );
 
+-- inserts feitos
 CREATE TABLE pessoa (
     login VARCHAR(255) PRIMARY KEY,
     nome VARCHAR(255),
@@ -65,6 +72,7 @@ CREATE TABLE comentario(
     FOREIGN KEY (cnpjPosto) REFERENCES posto(cnpj)
 );
 
+-- inserts feitos
 CREATE TABLE veiculo(
     placa VARCHAR(7) PRIMARY KEY,
     marca VARCHAR(255),
@@ -73,6 +81,7 @@ CREATE TABLE veiculo(
     FOREIGN KEY (loginPessoa) REFERENCES pessoa(login)
 );
 
+-- inserts feitos
 CREATE TABLE veiculo_abastecido_combustivel(
     placaVeiculo VARCHAR(7),
     nomeCombustivel VARCHAR(255),
@@ -87,13 +96,4 @@ CREATE TABLE posto_combustivel(
     PRIMARY KEY (cnpjPosto, nomeCombustivel),
     FOREIGN KEY (nomeCombustivel) REFERENCES combustivel(nome),
     FOREIGN KEY (cnpjPosto) REFERENCES posto(cnpj)
-);
-
-CREATE TABLE preco(
-    momento DATE,
-    valor DECIMAL(4	,2),
-    nomeCombustivel VARCHAR(255),
-    cnpjPosto VARCHAR(14),
-    PRIMARY KEY(momento, cnpjPosto, nomeCombustivel),
-    FOREIGN KEY (cnpjPosto, nomeCombustivel) REFERENCES posto_combustivel(cnpjPosto, nomeCombustivel)
 );
