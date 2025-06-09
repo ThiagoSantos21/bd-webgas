@@ -65,7 +65,7 @@ CREATE TABLE posto (
 );
 
 CREATE TABLE comentario(
-    momento DATE,
+    momento DATETIME,
     loginPessoa VARCHAR(255), 
     cnpjPosto VARCHAR(14),
     FOREIGN KEY (loginPessoa) REFERENCES pessoa(login),
@@ -96,4 +96,13 @@ CREATE TABLE posto_combustivel(
     PRIMARY KEY (cnpjPosto, nomeCombustivel),
     FOREIGN KEY (nomeCombustivel) REFERENCES combustivel(nome),
     FOREIGN KEY (cnpjPosto) REFERENCES posto(cnpj)
+);
+
+CREATE TABLE preco(
+	momento DATETIME primary key,
+    valor decimal(3,2),
+    cnpjPosto VARCHAR(14),
+    nomeCombustivel VARCHAR(255),
+    FOREIGN KEY (cnpjPosto) REFERENCES posto(cnpj),
+    FOREIGN KEY (nomeCombustivel) REFERENCES combustivel(nome)
 );

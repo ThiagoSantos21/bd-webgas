@@ -43,7 +43,7 @@ VALUES
     ('consumidor1', 'consumidor1', 'Consumidor'),
     ('consumidor2', 'consumidor2', 'Consumidor');
     
-INSERT INTO pessoa(login, nome, endereco, nomeBairro, loginUsuario)
+INSERT INTO pessoa(login, nome, endereco, nomeBairro, loginUsuario) 
 VALUES 
 	('frentista1', 'João', 'Rua 1', 'Tijuca', 'dono1'),
     ('frentista2', 'Paulo', 'Rua 2', 'Vila Isabel', 'dono1'),
@@ -68,7 +68,8 @@ VALUES
 	('11111111111111', 'Posto 1', 'Posto 1', 0,0,'Rua 8','111111111','Shell','Tijuca'),
     ('22222222222222', 'Posto 2', 'Posto 2', 0,0,'Rua 9','222222222','Vibra','Cambuí'),
     ('33333333333333', 'Posto 3', 'Posto 3', 0,0,'Rua 10','333333333','Ipiranga','Taquaral'),
-    ('44444444444444', 'Posto 4', 'Posto 4', 0,0,'Rua 11','444444444','Vibra','Moema');
+    ('44444444444444', 'Posto 4', 'Posto 4', 0,0,'Rua 11','444444444','Vibra','Moema'),
+    ('55555555555555', 'Posto 5', 'Posto 5', 0,0,'Rua 12','555555555','Shell','Taquaral');
     
 INSERT INTO posto_combustivel (cnpjPosto, nomeCombustivel)
 VALUES

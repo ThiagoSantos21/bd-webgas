@@ -1,5 +1,10 @@
 -- Script com as consultas 
 
+#Bairros com mais de um posto
+SELECT nomebairro, COUNT(*) AS total_postos 
+FROM posto
+GROUP BY nomebairro HAVING COUNT(*) > 1;
+
 #Listar os combustíveis disponíveis em um bairro específico
 SELECT DISTINCT posto_combustivel.nomeCombustivel
 FROM posto_combustivel
@@ -43,7 +48,7 @@ JOIN posto ON preco.cnpjPosto = posto.cnpj
 JOIN bandeira ON posto.nomeBandeira = bandeira.nome
 GROUP BY bandeira.nome, preco.nomeCombustivel;
 
-#Listar todos os postos ordenados pela proximidade a uma coordenada (coordenada hipotética)
+#Listar todos os postos ordenados pela proximidade a uma coordenada (coordenada hipotética) 		# talvez não seja incluida
 SELECT 
     posto.nome_fantasia,
     bairro.nome,
